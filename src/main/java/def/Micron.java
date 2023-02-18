@@ -18,30 +18,25 @@ public class Micron {
     this.truck = truck;
   }
 
+
+  //Returns first event[] returned by workstations
   public Event[] makeWorkstationsCheckQueue(){
 
-    ArrayList<Event> events = new ArrayList<>();
     for(Workstation workstation : workstations){
 
       //fills up the arrayList with events
       Event[] e = workstation.checkQueue();
-      for(int i = 0; i < e.length; i++){
-        events.add(e[i]);
+
+      if(e.length != 0){
+        return e; //return the first event trigger
+      }else{
+        //do nothing
       }
     }
-
-    return ArrayListToArray(events);
+    //if no events to generate, just send back empty event
+    return new Event[0];
   }
 
-
-  private Event[] ArrayListToArray(ArrayList<Event> ev){
-    Event[] events = new Event[ev.size()];
-
-    for(int i = 0; i < ev.size(); i++){
-      events[i] = ev.get(i);
-    }
-    return events;
-  }
 
 
   public static void incrementLotsProduced(){

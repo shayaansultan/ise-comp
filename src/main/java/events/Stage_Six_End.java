@@ -18,10 +18,12 @@ public class Stage_Six_End extends Event {
 
   @Override
   public Event[] simulate() {
-
     Micron.incrementLotsProduced();
-
-
     return new Event[0];
+  }
+
+  @Override
+  public String toString(){
+    return getTime() + ": " + workstation.toString() + " ended " + lot.toString();
   }
 }

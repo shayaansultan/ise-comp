@@ -20,6 +20,7 @@ public class Stage_One_Begin extends Event {
   public Event[] simulate() {
 
     workstation.setAvail(false);
+    workstation.removeLotFromQueue(lot);
     int timeEnd = workstation.getProcessTime(lot);
 
     return new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};

@@ -18,6 +18,14 @@ public class Stage_One_End extends Event {
 
   @Override
   public Event[] simulate() {
+
+    workstation.setAvail(true);
+
     return new Event[0];
+  }
+
+  @Override
+  public String toString(){
+    return getTime() + ": " + workstation.toString() + " ended " + lot.toString();
   }
 }

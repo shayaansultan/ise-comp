@@ -29,4 +29,16 @@ public abstract class Event implements Comparable<Event>{
   }
 
   public abstract Event[] simulate();
+
+
+  public Event[] mergeEvents(Event[] a, Event[] b){
+    Event[] res = new Event[a.length + b.length];
+    for(int i = 0; i < a.length; i++){
+      res[i] = a[i];
+    }
+    for(int j = 0; j < b.length;j ++){
+      res[j + a.length] = b[j];
+    }
+    return res;
+  }
 }

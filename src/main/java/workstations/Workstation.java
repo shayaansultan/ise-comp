@@ -29,5 +29,7 @@ public abstract class Workstation {
 
     public abstract Event[] checkQueue();
 
+    public abstract void removeLotFromQueue(Lot lot);
 
+    public abstract void addLotToQueue(Lot lot);
 }
