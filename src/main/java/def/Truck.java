@@ -23,4 +23,8 @@ public class Truck {
         
     }
 
+    public void loadLots(){
+
+    }
+
 }

@@ -11,6 +11,10 @@ public class Lot {
         this.location = location;
     }
 
+    public void setStage(int stage){
+        this.stage = stage;
+    }
+
     public int getId() {
         return this.lotId ;
     }
@@ -21,6 +25,11 @@ public class Lot {
 
     public String getLocation() {
         return this.location;
+    }
+
+    @Override
+    public String toString(){
+        return "L" + this.lotId + " (stage: " + stage + ")";
     }
 }
 

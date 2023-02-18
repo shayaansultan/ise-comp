@@ -1,6 +1,7 @@
 package events;
 
 import def.Lot;
+import def.Main;
 import workstations.Workstation;
 
 public class Stage_One_End extends Event {
@@ -18,10 +19,11 @@ public class Stage_One_End extends Event {
 
   @Override
   public Event[] simulate() {
-
     workstation.setAvail(true);
+    lot.setStage(1);
+    workstation.addLotToQueue(lot);
 
-    return new Event[0];
+    return Main.micron.makeWorkstationsCheckQueue();
   }
 
   @Override

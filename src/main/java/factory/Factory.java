@@ -19,4 +19,18 @@ public abstract class Factory {
     public String toString(){
         return name;
     }
+
+    public void addToQueue(Lot[] lots){
+        for(int i = 0; i < lots.length; i++){
+            this.lots.add(lots[i]);
+        }
+    }
+
+    public void addToQueue(ArrayList<Lot> lots){
+        for(int i = 0; i < lots.size(); i++){
+            this.lots.add(lots.get(i));
+        }
+    }
+
+
 }

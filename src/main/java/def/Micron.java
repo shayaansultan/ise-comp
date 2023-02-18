@@ -1,6 +1,9 @@
 package def;
 
 import events.Event;
+import factory.Factory;
+import factory.Factory_X;
+import factory.Factory_Y;
 import workstations.Workstation;
 
 import java.util.ArrayList;
@@ -11,11 +14,25 @@ public class Micron {
   private Workstation[] workstations;
   private Truck truck;
 
+  private Factory_X factoryX;
+  private Factory_Y factoryY;
 
-  public Micron(Workstation[] workstations, Truck truck){
+
+  public Micron(Workstation[] workstations, Truck truck, Factory_X x, Factory_Y y){
     lots_produced = 0;
     this.workstations = workstations;
     this.truck = truck;
+    this.factoryX = x;
+    this.factoryY = y;
+  }
+
+
+  public Factory_X getFactoryX() {
+    return factoryX;
+  }
+
+  public Factory_Y getFactoryY() {
+    return factoryY;
   }
 
 
