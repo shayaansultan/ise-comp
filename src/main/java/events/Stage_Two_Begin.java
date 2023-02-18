@@ -17,7 +17,10 @@ public class Stage_Two_Begin extends Event {
 
   @Override
   public Event[] simulate() {
-    return new Event[0];
+    workstation.setAvail(false);
+    int timeEnd = workstation.getProcessTime(lot);
+
+    return new Event[] {new Stage_Two_End(this.getTime() + timeEnd, lot, workstation)};
   }
 
 
