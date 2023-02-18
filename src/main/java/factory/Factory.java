@@ -33,4 +33,9 @@ public abstract class Factory {
     }
 
 
+    public void addToQueue(Lot lot){
+        this.lots.add(lot);
+    }
+
+
 }
