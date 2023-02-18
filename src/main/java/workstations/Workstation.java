@@ -1,3 +1,5 @@
+package workstations;
+
 import events.Event;
 
 public abstract class Workstation {

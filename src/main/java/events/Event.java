@@ -1,4 +1,6 @@
-abstract class Event implements Comparable<Event>{
+package events;
+
+public abstract class Event implements Comparable<Event>{
 
   private final int time;
 

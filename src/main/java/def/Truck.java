@@ -1,4 +1,4 @@
-import java.io.ObjectInputFilter.Status;
+package def;
 
 public class Truck {
     private Lot[] lots = new Lot[5];

@@ -1,11 +1,13 @@
-import events.Event;
+package events;
 
-public class Stage_One_End extends Event {
+import def.Lot;
+import workstations.Workstation;
 
+public class Stage_Three_End extends Event {
   private Lot lot;
   private Workstation workstation;
 
-  public Stage_One_End(int time, Lot lot, Workstation workstation){
+  public Stage_Three_End(int time, Lot lot, Workstation workstation){
     super(time);
 
     this.lot = lot;

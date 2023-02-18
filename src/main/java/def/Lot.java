@@ -1,3 +1,5 @@
+package def;
+
 public class Lot {
     private int lotId ;
     private int stage ;

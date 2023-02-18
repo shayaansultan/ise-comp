@@ -1,4 +1,7 @@
-import events.Event;
+package events;
+
+import def.Lot;
+import workstations.Workstation;
 
 public class Stage_Six_Begin extends Event {
   private Lot lot;
