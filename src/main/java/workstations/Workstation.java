@@ -1,5 +1,6 @@
 package workstations;
 
+import def.Lot;
 import events.Event;
 
 public abstract class Workstation {
@@ -24,7 +25,9 @@ public abstract class Workstation {
         return this.workstationId ;
     }
 
-    public abstract Event[] checkQueue() ;
+    public abstract int getProcessTime(Lot lot);
+
+    public abstract Event[] checkQueue();
 
 
 }

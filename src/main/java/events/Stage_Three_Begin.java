@@ -4,6 +4,8 @@ import def.Lot;
 import workstations.Workstation;
 
 public class Stage_Three_Begin extends Event {
+
+
   private Lot lot;
   private Workstation workstation;
 
@@ -18,5 +20,10 @@ public class Stage_Three_Begin extends Event {
   @Override
   public Event[] simulate() {
     return new Event[0];
+  }
+
+  @Override
+  public String toString(){
+    return getTime() + ": " + workstation.toString() + " started " + lot.toString();
   }
 }

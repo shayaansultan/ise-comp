@@ -1,5 +1,5 @@
 package workstations;
 
-public class F {
+public class F extends Workstation{
     
 }

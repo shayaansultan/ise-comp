@@ -4,6 +4,7 @@ import def.Lot;
 import workstations.Workstation;
 
 public class Stage_Three_End extends Event {
+
   private Lot lot;
   private Workstation workstation;
 

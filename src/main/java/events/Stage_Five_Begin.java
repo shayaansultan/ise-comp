@@ -19,4 +19,9 @@ public class Stage_Five_Begin extends Event {
   public Event[] simulate() {
     return new Event[0];
   }
+
+  @Override
+  public String toString(){
+    return getTime() + ": " + workstation.toString() + " started " + lot.toString();
+  }
 }
