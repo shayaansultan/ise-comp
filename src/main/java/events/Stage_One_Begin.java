@@ -1,6 +1,7 @@
 package events;
 
 import def.Lot;
+import def.Main;
 import workstations.Workstation;
 
 public class Stage_One_Begin extends Event {
@@ -23,7 +24,11 @@ public class Stage_One_Begin extends Event {
     workstation.removeLotFromQueue(lot);
     int timeEnd = workstation.getProcessTime(lot);
 
-    return new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};
+
+    Event[] c = Main.micron.makeWorkstationsCheckQueue();
+    Event[] e = new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};
+
+    return mergeEvents(c, e);
   }
 
   @Override
