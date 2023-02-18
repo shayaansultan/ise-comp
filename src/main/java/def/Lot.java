@@ -12,7 +12,7 @@ public class Lot {
     }
 
     public int getId() {
-        return this.getId() ;
+        return this.lotId ;
     }
 
     public int getStage() {
