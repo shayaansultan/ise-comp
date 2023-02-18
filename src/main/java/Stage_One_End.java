@@ -6,6 +6,8 @@ public class Stage_One_End extends Event {
   public Stage_One_End(int time, Lot lot, Workstation workstation){
     super(time);
 
+    this.lot = lot;
+    this.workstation = workstation;
   }
 
 
