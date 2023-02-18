@@ -1,4 +1,6 @@
-public class Stage_Six_End extends Event{
+import events.Event;
+
+public class Stage_Six_End extends Event {
   private Lot lot;
   private Workstation workstation;
 

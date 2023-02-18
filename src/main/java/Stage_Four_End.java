@@ -1,3 +1,5 @@
+import events.Event;
+
 public class Stage_Four_End extends Event {
   private Lot lot;
   private Workstation workstation;

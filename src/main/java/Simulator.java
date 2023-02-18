@@ -1,3 +1,5 @@
+import events.Event;
+
 import java.util.PriorityQueue;
 
 public class Simulator {

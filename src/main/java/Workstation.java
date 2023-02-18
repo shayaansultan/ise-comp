@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Queue;
+import events.Event;
 
 public abstract class Workstation {
     private String workstationId ;
