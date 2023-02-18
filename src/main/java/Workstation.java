@@ -22,4 +22,8 @@ public abstract class Workstation {
     public String toString() {
         return this.workstationId ;
     }
+
+    public abstract Event[] checkQueue() ;
+
+
 }
