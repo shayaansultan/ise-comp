@@ -14,6 +14,9 @@ public abstract class Factory {
         this.lots = new ArrayList<>();
     }
 
+    public ArrayList<Lot> getQueue(){
+        return lots;
+    }
 
     @Override
     public String toString(){

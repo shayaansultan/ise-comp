@@ -23,7 +23,7 @@ public class Stage_Three_End extends Event {
     lot.setStage(3);
     workstation.addLotToQueue(lot);
 
-    return Main.micron.makeWorkstationsCheckQueue();
+    return Main.micron.makeWorkstationsCheckQueue(getTime());
   }
 
   @Override

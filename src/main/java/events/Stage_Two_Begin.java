@@ -22,7 +22,7 @@ public class Stage_Two_Begin extends Event {
     workstation.removeLotFromQueue(lot);
     int timeEnd = workstation.getProcessTime(lot);
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue();
+    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
 
     Event[] e = new Event[] {new Stage_Two_End(this.getTime() + timeEnd, lot, workstation)};
     return mergeEvents(c, e);

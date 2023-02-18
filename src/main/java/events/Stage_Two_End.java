@@ -22,7 +22,7 @@ public class Stage_Two_End extends Event {
     lot.setStage(2);
     workstation.addLotToQueue(lot);
 
-    return Main.micron.makeWorkstationsCheckQueue();
+    return Main.micron.makeWorkstationsCheckQueue(getTime());
   }
 
   @Override

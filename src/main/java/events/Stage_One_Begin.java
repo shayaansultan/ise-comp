@@ -25,7 +25,7 @@ public class Stage_One_Begin extends Event {
     int timeEnd = workstation.getProcessTime(lot);
 
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue();
+    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
     Event[] e = new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};
 
     return mergeEvents(c, e);

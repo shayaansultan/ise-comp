@@ -17,7 +17,6 @@ public class Micron {
   private Factory_X factoryX;
   private Factory_Y factoryY;
 
-
   public Micron(Workstation[] workstations, Truck truck, Factory_X x, Factory_Y y){
     lots_produced = 0;
     this.workstations = workstations;
@@ -26,6 +25,10 @@ public class Micron {
     this.factoryY = y;
   }
 
+
+  public Truck getTruck(){
+    return this.truck;
+  }
 
   public Factory_X getFactoryX() {
     return factoryX;
@@ -37,12 +40,12 @@ public class Micron {
 
 
   //Returns first event[] returned by workstations
-  public Event[] makeWorkstationsCheckQueue(){
+  public Event[] makeWorkstationsCheckQueue(int time){
 
     for(Workstation workstation : workstations){
 
       //fills up the arrayList with events
-      Event[] e = workstation.checkQueue();
+      Event[] e = workstation.checkQueue(time);
 
       if(e.length != 0){
         return e; //return the first event trigger

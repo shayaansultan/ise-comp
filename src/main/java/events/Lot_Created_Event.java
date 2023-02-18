@@ -20,6 +20,6 @@ public class Lot_Created_Event extends Event{
     Lot lot = new Lot(lotID, 0, "X");
     Main.micron.getFactoryX().addToQueue(lot);
 
-    return Main.micron.makeWorkstationsCheckQueue();
+    return Main.micron.makeWorkstationsCheckQueue(getTime());
   }
 }

@@ -3,6 +3,9 @@ package workstations;
 import def.Lot;
 import events.Event;
 import factory.Factory;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
 
 public abstract class Workstation {
     private String workstationId ;
@@ -30,9 +33,23 @@ public abstract class Workstation {
 
     public abstract int getProcessTime(Lot lot);
 
-    public abstract Event[] checkQueue();
+    public abstract Event[] checkQueue(int time);
 
-    public abstract void removeLotFromQueue(Lot lot);
+    public void removeLotFromQueue(Lot lot){
+        factory.getQueue().remove(lot);
+    }
 
-    public abstract void addLotToQueue(Lot lot);
+    public void addLotToQueue(Lot lot){
+        factory.getQueue().add(lot);
+    }
+
+    protected @Nullable
+    Lot checkQueueForLot(ArrayList<Lot> queue, int stage){
+    for(Lot elem : queue){
+        if(elem.getStage() == stage){
+            return elem;
+        }
+    }
+    return null;
+    }
 }

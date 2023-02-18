@@ -24,7 +24,7 @@ public class Stage_Three_Begin extends Event {
     workstation.removeLotFromQueue(lot);
     int timeEnd = workstation.getProcessTime(lot);
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue();
+    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
 
     Event[] e = new Event[] {new Stage_Three_End(this.getTime() + timeEnd, lot, workstation)};
     return mergeEvents(c, e);
