@@ -40,22 +40,27 @@ public class Truck {
     //Event simulation assumption: truck always keeps travelling. Change Simulation for changing behaviour.
     public void loadLots(){
 
+
+        //notes do not add 5 to priority anywhere. we want products to finish in same assembly line
         int[] priorityOrder = new int[5];
         ArrayList<Lot> tempQueue = new ArrayList<>();
         ArrayList<Lot> queue;
 
         if(this.status.equals("X")){
 
+            //Do not send 5, 1,
             priorityOrder = new int[] {3};
 
             queue = Main.micron.getFactoryX().getQueue();
         }else{
 
+            //Do not send 5, 2, 3, 0
             priorityOrder = new int[] {1};
 
             queue = Main.micron.getFactoryY().getQueue();
         }
 
+        //NOTE: 3, 0 and 1, 4 >>> 14.35min/lot
 
         //loads up truck according to defined priority
         for(int i = 0; i < priorityOrder.length; i ++){
