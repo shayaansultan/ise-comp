@@ -36,6 +36,11 @@ public class Stage_One_Begin extends Event {
       //Record the value;
       lot.setStarted_production(this.getTime());
 
+      //record data to work Station
+      workstation.incrementLotsProcessed(1);
+      workstation.incrementWorkTime(timeEnd);
+
+
       //prints after working
       System.out.println(this);
 

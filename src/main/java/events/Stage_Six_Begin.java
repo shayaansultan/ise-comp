@@ -29,6 +29,10 @@ public class Stage_Six_Begin extends Event {
 
       Event[] e = new Event[]{new Stage_Six_End(this.getTime() + timeEnd, lot, workstation)};
 
+      //record data to work Station
+      workstation.incrementLotsProcessed(1);
+      workstation.incrementWorkTime(timeEnd);
+
       //prints after working
       System.out.println(this);
 

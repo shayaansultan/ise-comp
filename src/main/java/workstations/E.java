@@ -47,15 +47,15 @@ public class E extends Workstation{
       //priority check here
       Lot l = null;
 
-      l = checkQueueForLot(lots, 4);
-      if(l != null){
-        return new Event[] {new Stage_Five_Begin(time, l, this)};
-      }
-
-
       l = checkQueueForLot(lots, 2);
       if(l != null){
         return new Event[] {new Stage_Three_Begin(time, l, this)};
+      }
+
+
+      l = checkQueueForLot(lots, 4);
+      if(l != null){
+        return new Event[] {new Stage_Five_Begin(time, l, this)};
       }
 
       l = checkQueueForLot(lots, 0);

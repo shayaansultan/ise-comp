@@ -63,6 +63,7 @@ public class Simulator {
 
 
     micron.outputLotData();
+    micron.outputWorkstationData();
   }
 
 

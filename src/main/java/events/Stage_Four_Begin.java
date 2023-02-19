@@ -31,6 +31,10 @@ public class Stage_Four_Begin extends Event {
       //prints after working
       System.out.println(this);
 
+      //record data to work Station
+      workstation.incrementLotsProcessed(1);
+      workstation.incrementWorkTime(timeEnd);
+
       return mergeEvents(c, e);
     }else{
 

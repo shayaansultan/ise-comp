@@ -11,12 +11,26 @@ public abstract class Workstation {
     protected String workstationId ;
     private boolean status;
     private Factory factory;
-    
+
+
+    private int lots_processed;
+    private int worktime;
+
+
+    ArrayList<Integer> processes_completed;
+
+    public void addProcessInfo(int i){
+        processes_completed.add(i);
+    }
 
     public Workstation(String id, Factory factory) {
         this.workstationId = id ;
         this.factory = factory;
         this.status = true;
+        this.processes_completed = new ArrayList<>();
+
+        worktime = 0;
+        lots_processed = 0;
     }
     
     public void setAvail(boolean c) {
@@ -73,4 +87,24 @@ public abstract class Workstation {
         return this.factory.queueContains(lot);
     }
 
+    public int getLots_processed() {
+        return lots_processed;
+    }
+
+    public int getWorktime() {
+        return worktime;
+    }
+
+    public void incrementLotsProcessed(int i){
+        this.lots_processed = lots_processed + i;
+    }
+
+    public void incrementWorkTime(int i){
+        this.worktime = worktime + i;
+    }
+
+
+    public String getName(){
+        return this.workstationId;
+    }
 }

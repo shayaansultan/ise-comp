@@ -148,4 +148,37 @@ public class Micron {
     System.setOut(System.out);
   }
 
+
+
+  public void outputWorkstationData(){
+    PrintStream printStream = null;
+    try {
+      printStream = new PrintStream(new File("C:\\Users\\thund\\Desktop\\ISE\\workstation.csv"));
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+
+    System.setOut(printStream);
+
+
+    String workstationName = "Workstation";
+    String lotsProcessed = "Lots Produced";
+    String workTime = "Total Work Time";
+
+    String line = workstationName + "," + lotsProcessed + "," + workTime;
+
+    System.out.println(line);
+    for(Workstation workstation : workstations){
+
+      workstationName = workstation.getName();
+      lotsProcessed = workstation.getLots_processed() + "";
+      workTime = workstation.getWorktime() + "";
+
+      line = workstationName + "," + lotsProcessed + "," + workTime;
+
+      System.out.println(line);
+    }
+    System.setOut(System.out);
+  }
+
 }
