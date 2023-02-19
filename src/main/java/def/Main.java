@@ -2,8 +2,6 @@ package def;
 
 import factory.Factory_X;
 import factory.Factory_Y;
-import workstations.*;
-import workstations.Workstation;
 
 public class Main {
 
