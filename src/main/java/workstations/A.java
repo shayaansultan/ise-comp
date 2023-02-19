@@ -43,7 +43,7 @@ public class A extends Workstation{
   @Override
   public synchronized Event[] checkQueue(int time) {
 
-    if(getAvail()){
+    if(getAvail() == true){
       //if available then check queue for work
       ArrayList<Lot> lots = factory.getQueue();
 
@@ -53,11 +53,13 @@ public class A extends Workstation{
 
       l = checkQueueForLot(lots, 2);
       if(l != null){
+        this.setAvail(false);
         return new Event[] {new Stage_Three_Begin(time, l, this)};
       }
 
       l = checkQueueForLot(lots, 0);
       if(l != null){
+        this.setAvail(false);
         return new Event[] {new Stage_One_Begin(time, l, this)};
       }else{
         return new Event[0]; //queue does not have lots for A to process.

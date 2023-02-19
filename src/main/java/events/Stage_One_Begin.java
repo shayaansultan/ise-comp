@@ -18,7 +18,7 @@ public class Stage_One_Begin extends Event {
 
 
   @Override
-  public Event[] simulate() {
+  public synchronized Event[] simulate() {
 
     workstation.removeLotFromQueue(lot);
     workstation.setAvail(false);

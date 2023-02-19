@@ -37,7 +37,7 @@ public class B extends Workstation{
 
   //belongs to factory X, so checks factoryX's queue
   @Override
-  public Event[] checkQueue(int time) {
+  public synchronized Event[] checkQueue(int time) {
 
     if(getAvail()){
       //if available then check queue for work
@@ -49,11 +49,13 @@ public class B extends Workstation{
 
       l = checkQueueForLot(lots, 5);
       if(l != null){
+        this.setAvail(false);
         return new Event[] {new Stage_Six_Begin(time, l, this)};
       }
 
       l = checkQueueForLot(lots, 1);
       if(l != null){
+        this.setAvail(false);
         return new Event[] {new Stage_Two_Begin(time, l, this)};
       }else{
         return new Event[0]; //queue does not have lots for A to process.

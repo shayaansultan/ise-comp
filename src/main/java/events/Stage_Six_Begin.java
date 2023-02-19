@@ -26,7 +26,7 @@ public class Stage_Six_Begin extends Event {
     Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
 
     Event[] e = new Event[] {new Stage_Six_End(this.getTime() + timeEnd, lot, workstation)};
-    return mergeEvents(c, e);
+    return mergeEvents(e, c);
   }
 
   @Override

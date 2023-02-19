@@ -1,9 +1,8 @@
 package def;
 
 import events.Event;
-import events.Lot_Created_Event;
+import events.Lots_Initiated;
 import events.Truck_Arrive_Event;
-import workstations.E;
 
 public class Simulation {
 
@@ -15,12 +14,29 @@ public class Simulation {
    * Add constructor asking for how many lots to simulate
    */
 
+  private int lots;
+
+  public int getLots(){
+    return lots;
+  }
+
+  private Micron micron;
+
+  public Micron getMicron(){
+    return micron;
+  }
+
   public Simulation(int lots, Micron micron){
-    e = new Event[lots + 1];
+    this.lots = lots;
+    this.micron = micron;
+
     for(int i = 0; i < lots; i++){
-      e[i] = new Lot_Created_Event(0, i);
+      micron.getFactoryX().addToQueue(new Lot(i, 0, "X"));
     }
-    e[lots] = new Truck_Arrive_Event(0, micron.getTruck(), "X");
+
+
+    e= new Event[] {new Lots_Initiated(0, micron), new Truck_Arrive_Event(0, micron.getTruck(), "X")};
+
   }
 
 

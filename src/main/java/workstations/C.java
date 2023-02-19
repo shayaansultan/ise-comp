@@ -46,11 +46,13 @@ public class C extends Workstation{
 
       l = checkQueueForLot(lots, 1);
       if(l != null){
+        this.setAvail(false);
         return new Event[] {new Stage_Two_Begin(time, l, this)};
       }
 
       l = checkQueueForLot(lots, 4);
       if(l != null){
+        this.setAvail(false);
         return new Event[] {new Stage_Five_Begin(time, l, this)};
       }else{
         return new Event[0]; //queue does not have lots for A to process.

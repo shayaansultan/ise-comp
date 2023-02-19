@@ -16,7 +16,7 @@ public abstract class Event implements Comparable<Event>{
 
       if(this instanceof Truck_Arrive_Event){
         return 1;
-      }else if(this instanceof Truck_Leave_Event || this instanceof Lot_Created_Event){
+      }else if(this instanceof Truck_Leave_Event){
         return -1;
       }else{
         return 0;

@@ -48,7 +48,7 @@ public class Micron {
   //Returns first event[] returned by workstations
   public Event[] makeWorkstationsCheckQueue(int time){
 
-    checkTermination();
+    //checkTermination();
 
 
     for(Workstation workstation : workstations){
@@ -86,5 +86,8 @@ public class Micron {
     lots_produced = lots_produced + 1;
   }
 
+  public static int getLots_produced(){
+    return lots_produced;
+  }
 
 }
