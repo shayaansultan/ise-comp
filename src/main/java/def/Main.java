@@ -18,7 +18,7 @@ public class Main {
 
     micron = new Micron(truck, x, y);
 
-    Simulation s = new Simulation(101, micron);
+    Simulation s = new Simulation(1000, micron);
 
 
     new Simulator(s).run();

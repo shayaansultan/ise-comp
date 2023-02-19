@@ -38,14 +38,24 @@ public abstract class Workstation {
 
     public void removeLotFromQueue(Lot lot){
         factory.printQueue();
-        factory.getQueue().remove(lot);
-        System.out.println("REMOVED " + lot + " from QUEUE");
+
+        boolean b;
+        do {
+            b = factory.getQueue().remove(lot);
+        }while (b);
+
+
+        System.out.println("REMOVED " + lot + " from QUEUE ");
         factory.printQueue();
 
     }
 
+    //!TODO cheated here tbh
     public void addLotToQueue(Lot lot){
+        factory.printQueue();
         factory.getQueue().add(lot);
+        System.out.println("ADDED " + lot + " from QUEUE ");
+        factory.printQueue();
     }
 
     protected @Nullable

@@ -34,7 +34,7 @@ public abstract class Factory {
     }
 
     public void printQueue(){
-       System.out.println(lots.toString());
+       System.out.println(toString() + ": " + lots.toString());
     }
 
     public void addToQueue(ArrayList<Lot> lots){
