@@ -1,7 +1,6 @@
 package def;
 
 import events.Event;
-import factory.Factory;
 import factory.Factory_X;
 import factory.Factory_Y;
 import workstations.*;
@@ -10,18 +9,31 @@ import java.util.ArrayList;
 
 public class Micron {
 
-  private static int lots_produced;
+  private static int numb_lots_produced;
   private Workstation[] workstations;
   private Truck truck;
+
+  private ArrayList<Lot> lots_completed;
+
+
+  public void addCompletedLot(Lot lot){
+    lots_completed.add(lot);
+  }
+
+  public void printCompleted(){
+    System.out.println("Completed: " + lots_completed.toString());
+  }
+
 
   private Factory_X factoryX;
   private Factory_Y factoryY;
 
   public Micron(Truck truck, Factory_X x, Factory_Y y){
-    lots_produced = 0;
+    numb_lots_produced = 0;
     this.truck = truck;
     this.factoryX = x;
     this.factoryY = y;
+    this.lots_completed = new ArrayList<Lot>();
 
     this.workstations = new Workstation[] {new A(this),
             new B(this),
@@ -58,7 +70,7 @@ public class Micron {
         Event[] e = workstation.checkQueue(time);
 
         if(e.length != 0){
-          System.out.println("Found viable lot in queue for " + workstation.toString());
+          //System.out.println("Found viable lot in queue for " + workstation.toString());
           return e; //return the first event trigger
         }
       }else{
@@ -87,11 +99,11 @@ public class Micron {
 
 
   public static void incrementLotsProduced(){
-    lots_produced = lots_produced + 1;
+    numb_lots_produced = numb_lots_produced + 1;
   }
 
-  public static int getLots_produced(){
-    return lots_produced;
+  public static int getNumb_lots_produced(){
+    return numb_lots_produced;
   }
 
 }

@@ -18,14 +18,23 @@ public class Stage_Four_Begin extends Event {
 
   @Override
   public Event[] simulate() {
-    workstation.setAvail(false);
-    workstation.removeLotFromQueue(lot);
-    int timeEnd = workstation.getProcessTime(lot);
+    if(workstation.checkForLotAvailibility(lot) == true && workstation.getAvail()) {
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+      workstation.setAvail(false);
+      workstation.removeLotFromQueue(lot);
+      int timeEnd = workstation.getProcessTime(lot);
 
-    Event[] e = new Event[] {new Stage_Four_End(this.getTime() + timeEnd, lot, workstation)};
-    return mergeEvents(c, e);
+      Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+
+      Event[] e = new Event[]{new Stage_Four_End(this.getTime() + timeEnd, lot, workstation)};
+      return mergeEvents(c, e);
+    }else{
+
+//      System.out.println("Error in finding event in lot");
+//      System.out.println("Lot exists: " + workstation.checkForLotAvailibility(lot));
+      return new Event[0];
+
+    }
   }
 
   @Override

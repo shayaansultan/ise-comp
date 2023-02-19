@@ -22,6 +22,8 @@ public class Stage_Six_End extends Event {
 
     workstation.setAvail(true);
     lot.setStage(6);
+
+    Main.micron.addCompletedLot(lot);
     Micron.incrementLotsProduced();
 
 

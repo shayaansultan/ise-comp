@@ -18,15 +18,24 @@ public class Stage_Six_Begin extends Event {
 
   @Override
   public Event[] simulate() {
-    workstation.setAvail(false);
-    workstation.removeLotFromQueue(lot);
 
-    int timeEnd = workstation.getProcessTime(lot);
+    if(workstation.checkForLotAvailibility(lot) == true && workstation.getAvail()) {
+      workstation.setAvail(false);
+      workstation.removeLotFromQueue(lot);
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+      int timeEnd = workstation.getProcessTime(lot);
 
-    Event[] e = new Event[] {new Stage_Six_End(this.getTime() + timeEnd, lot, workstation)};
-    return mergeEvents(e, c);
+      Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+
+      Event[] e = new Event[]{new Stage_Six_End(this.getTime() + timeEnd, lot, workstation)};
+      return mergeEvents(e, c);
+    }else{
+
+//      System.out.println("Error in finding event in lot");
+//      System.out.println("Lot exists: " + workstation.checkForLotAvailibility(lot));
+      return new Event[0];
+
+    }
   }
 
   @Override

@@ -52,9 +52,10 @@ public class C extends Workstation{
       l = checkQueueForLot(lots, 4);
       if(l != null){
         return new Event[] {new Stage_Five_Begin(time, l, this)};
-      }else{
-        return new Event[0]; //queue does not have lots for A to process.
       }
+
+      return new Event[0]; //queue does not have lots for A to process.
+
     }else{
       //not available, so no need to check queue
       return new Event[0];

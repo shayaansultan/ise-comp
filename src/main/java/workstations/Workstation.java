@@ -45,7 +45,7 @@ public abstract class Workstation {
         }while (b);
 
 
-        System.out.println("REMOVED " + lot + " from QUEUE ");
+        //System.out.println("REMOVED " + lot + " from QUEUE ");
         factory.printQueue();
 
     }
@@ -54,7 +54,7 @@ public abstract class Workstation {
     public void addLotToQueue(Lot lot){
         factory.printQueue();
         factory.getQueue().add(lot);
-        System.out.println("ADDED " + lot + " to QUEUE ");
+        //System.out.println("ADDED " + lot + " to QUEUE ");
         factory.printQueue();
     }
 

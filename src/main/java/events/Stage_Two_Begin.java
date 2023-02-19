@@ -18,14 +18,24 @@ public class Stage_Two_Begin extends Event {
 
   @Override
   public Event[] simulate() {
-    workstation.setAvail(false);
-    workstation.removeLotFromQueue(lot);
-    int timeEnd = workstation.getProcessTime(lot);
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+    if(workstation.checkForLotAvailibility(lot) == true && workstation.getAvail()) {
 
-    Event[] e = new Event[] {new Stage_Two_End(this.getTime() + timeEnd, lot, workstation)};
-    return mergeEvents(c, e);
+      workstation.setAvail(false);
+      workstation.removeLotFromQueue(lot);
+      int timeEnd = workstation.getProcessTime(lot);
+
+      Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+
+      Event[] e = new Event[]{new Stage_Two_End(this.getTime() + timeEnd, lot, workstation)};
+      return mergeEvents(c, e);
+    }else {
+
+//      System.out.println("Error in finding event in lot");
+//      System.out.println("Lot exists: " + workstation.checkForLotAvailibility(lot));
+      return new Event[0];
+
+    }
   }
 
 

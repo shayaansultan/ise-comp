@@ -37,7 +37,7 @@ public abstract class Event implements Comparable<Event>{
 
   @Override
   public String toString(){
-    return String.format("%.3f",this.time);
+    return String.format("%.2f", (double) this.time) + "";
   }
 
   public abstract Event[] simulate();
