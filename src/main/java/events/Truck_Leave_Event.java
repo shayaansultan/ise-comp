@@ -23,6 +23,8 @@ public class Truck_Leave_Event extends Event {
     truck.loadLots();
     truck.setStatus("T");
 
+
+    System.out.println(this);
     return new Event[] {new Truck_Arrive_Event(getTime() + 25, truck, destination)};
   }
 

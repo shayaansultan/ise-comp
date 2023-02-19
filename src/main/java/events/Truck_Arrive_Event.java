@@ -23,6 +23,8 @@ public class Truck_Arrive_Event extends Event{
   @Override
   public Event[] simulate() {
 
+    System.out.println(this);
+
     Lot[] lots = truck.getLots();
 
     //unload the truck
