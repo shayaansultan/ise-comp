@@ -14,18 +14,11 @@ public class Main {
     Factory_X x = new Factory_X();
     Factory_Y y = new Factory_Y();
 
-    Workstation[] workstations = new Workstation[] {new A(micron),
-                                                    new B(),
-                                                    new C(),
-                                                    new D(),
-                                                    new E(),
-                                                    new F()};
-
     Truck truck = new Truck();
 
-    micron = new Micron(workstations, truck, x, y);
+    micron = new Micron(truck, x, y);
 
-    Simulation s = new Simulation(10);
+    Simulation s = new Simulation(5, micron);
 
 
     new Simulator(s).run();

@@ -15,12 +15,12 @@ public class Simulation {
    * Add constructor asking for how many lots to simulate
    */
 
-  public Simulation(int lots){
+  public Simulation(int lots, Micron micron){
     e = new Event[lots + 1];
     for(int i = 0; i < lots; i++){
       e[i] = new Lot_Created_Event(0, i);
     }
-    e[lots] = new Truck_Arrive_Event(0, Main.micron.getTruck(), "X");
+    e[lots] = new Truck_Arrive_Event(0, micron.getTruck(), "X");
   }
 
 

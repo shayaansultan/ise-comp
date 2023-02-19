@@ -27,6 +27,6 @@ public class Truck_Leave_Event extends Event {
 
   @Override
   public String toString() {
-    return getTime() + ": " + "Truck departed " + location + truck.toString();
+    return getTime() + ": " + "Truck departed " + location + " " + truck.toString();
   }
 }

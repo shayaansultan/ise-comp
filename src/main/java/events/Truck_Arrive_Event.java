@@ -13,7 +13,8 @@ public class Truck_Arrive_Event extends Event{
   public Truck_Arrive_Event(int time, Truck truck, String arrival_location){
     super(time);
     truck.setStatus(arrival_location);
-    this.location = location;
+    this.location = arrival_location;
+    this.truck = truck;
   }
 
 
@@ -27,6 +28,8 @@ public class Truck_Arrive_Event extends Event{
     //unload the truck
     if(truck.getStatus().equals("X")){
       Main.micron.getFactoryX().addToQueue(lots);
+
+
     }else if(truck.getStatus().equals("Y")){
       Main.micron.getFactoryY().addToQueue(lots);
     }
@@ -53,6 +56,7 @@ public class Truck_Arrive_Event extends Event{
 
   @Override
   public String toString() {
-    return getTime() + ": " + "Truck arrived at " + location + " " + truck;
+    return getTime() + ": " + "Truck arrived at " + location + " " + truck.toString();
   }
+
 }

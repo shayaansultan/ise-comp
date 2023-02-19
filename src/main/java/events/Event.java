@@ -13,7 +13,15 @@ public abstract class Event implements Comparable<Event>{
     if (this.time > e.time) {
       return 1;
     } else if (this.time == e.time) {
-      return 0;
+
+      if(this instanceof Truck_Arrive_Event){
+        return 1;
+      }else if(this instanceof Truck_Leave_Event){
+        return -1;
+      }else{
+        return 0;
+      }
+
     } else {
       return -1;
     }

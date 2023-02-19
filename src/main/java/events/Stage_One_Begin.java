@@ -20,8 +20,8 @@ public class Stage_One_Begin extends Event {
   @Override
   public Event[] simulate() {
 
-    workstation.setAvail(false);
     workstation.removeLotFromQueue(lot);
+    workstation.setAvail(false);
     int timeEnd = workstation.getProcessTime(lot);
 
 

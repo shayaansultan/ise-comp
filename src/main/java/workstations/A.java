@@ -31,6 +31,8 @@ public class A extends Workstation{
     }else if(lot.getStage() == 2){
       return 10;
     }else{
+      System.out.println("Error at " + this.workstationId);
+      System.exit(420);
       return 1000000000;
     }
   }
@@ -39,7 +41,7 @@ public class A extends Workstation{
 
   //belongs to factory X, so checks factoryX's queue
   @Override
-  public Event[] checkQueue(int time) {
+  public synchronized Event[] checkQueue(int time) {
 
     if(getAvail()){
       //if available then check queue for work
@@ -64,7 +66,5 @@ public class A extends Workstation{
       //not available, so no need to check queue
        return new Event[0];
     }
-
-
   }
 }

@@ -8,14 +8,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 
 public abstract class Workstation {
-    private String workstationId ;
-    private boolean status = true ;
+    protected String workstationId ;
+    private boolean status;
     private Factory factory;
     
 
     public Workstation(String id, Factory factory) {
         this.workstationId = id ;
         this.factory = factory;
+        this.status = true;
     }
     
     public void setAvail(boolean c) {
@@ -36,7 +37,11 @@ public abstract class Workstation {
     public abstract Event[] checkQueue(int time);
 
     public void removeLotFromQueue(Lot lot){
+        factory.printQueue();
         factory.getQueue().remove(lot);
+        System.out.println("REMOVED " + lot + " from QUEUE");
+        factory.printQueue();
+
     }
 
     public void addLotToQueue(Lot lot){
