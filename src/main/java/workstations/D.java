@@ -45,13 +45,12 @@ public class D extends Workstation{
 
       l = checkQueueForLot(lots, 3);
       if(l != null){
-        this.setAvail(false);
         return new Event[] {new Stage_Four_Begin(time, l, this)};
       }
 
+
       l = checkQueueForLot(lots, 0);
       if(l != null) {
-        this.setAvail(false);
         return new Event[]{new Stage_One_Begin(time, l, this)};
       }
 

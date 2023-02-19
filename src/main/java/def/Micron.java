@@ -53,13 +53,16 @@ public class Micron {
 
     for(Workstation workstation : workstations){
 
-      if(workstation.getAvail()){
+      if(workstation.getAvail() == true){
         //fills up the arrayList with events
         Event[] e = workstation.checkQueue(time);
 
         if(e.length != 0){
+          System.out.println("Found viable lot in queue for " + workstation.toString());
           return e; //return the first event trigger
         }
+      }else{
+        //do nothing if workstation is not available.
       }
 
     }

@@ -23,6 +23,8 @@ public class Simulator {
   }
 
 
+  //WE PRINT EVENT FIRST THEN WE SIMULATE
+
   //edit to shut down when production is complete
   public void run(){
     int total_time = 0;
@@ -34,11 +36,16 @@ public class Simulator {
       for(Event ev : newEvents){
         this.events.add(ev);
       }
-      System.out.println("LOTS PRODUCED: " + Micron.getLots_produced());
+      //System.out.println("LOTS PRODUCED: " + Micron.getLots_produced());
+      micron.getFactoryX().printQueue();
+      micron.getFactoryY().printQueue();
       e = this.events.poll();
 
 
       if(Micron.getLots_produced() >= lots){
+        break;
+      }
+      if(total_time >= 10080){
         break;
       }
     }

@@ -20,6 +20,7 @@ public class Truck_Leave_Event extends Event {
 
   @Override
   public Event[] simulate() {
+    truck.loadLots();
     truck.setStatus("T");
 
     return new Event[] {new Truck_Arrive_Event(getTime() + 25, truck, destination)};

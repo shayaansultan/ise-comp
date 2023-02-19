@@ -44,7 +44,6 @@ public class F extends Workstation{
       //priority check here
       Lot l = null;
 
-
       l = checkQueueForLot(lots, 5);
       if(l != null){
         this.setAvail(false);
@@ -56,6 +55,7 @@ public class F extends Workstation{
         this.setAvail(false);
         return new Event[] {new Stage_Four_Begin(time, l, this)};
       }
+
 
       return new Event[0]; //queue does not have lots for A to process.
 

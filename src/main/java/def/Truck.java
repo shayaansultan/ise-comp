@@ -49,13 +49,13 @@ public class Truck {
         if(this.status.equals("X")){
 
             //Do not send 5, 1,
-            priorityOrder = new int[] {3};
+            priorityOrder = new int[] {3, 0};
 
             queue = Main.micron.getFactoryX().getQueue();
         }else{
 
             //Do not send 5, 2, 3, 0
-            priorityOrder = new int[] {1};
+            priorityOrder = new int[] {1, 4};
 
             queue = Main.micron.getFactoryY().getQueue();
         }

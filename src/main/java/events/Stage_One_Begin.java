@@ -20,15 +20,27 @@ public class Stage_One_Begin extends Event {
   @Override
   public synchronized Event[] simulate() {
 
-    workstation.removeLotFromQueue(lot);
-    workstation.setAvail(false);
-    int timeEnd = workstation.getProcessTime(lot);
+    //simulates only if lot is there and the workstation is free (Debugging)
+    if(workstation.checkForLotAvailibility(lot) == true && workstation.getAvail()){
+
+      System.out.println(workstation + " is actually working");
+
+      workstation.removeLotFromQueue(lot);
+      workstation.setAvail(false);
+      int timeEnd = workstation.getProcessTime(lot);
 
 
-    Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
-    Event[] e = new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};
+      Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
+      Event[] e = new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};
 
-    return mergeEvents(c, e);
+      return mergeEvents(c, e);
+    }else{
+
+      System.out.println("Error in finding event in lot");
+      System.out.println("Lot exists: " + workstation.checkForLotAvailibility(lot));
+      return new Event[0];
+
+    }
   }
 
   @Override

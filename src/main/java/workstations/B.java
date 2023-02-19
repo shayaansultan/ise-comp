@@ -47,19 +47,21 @@ public class B extends Workstation{
       //priority check here
       Lot l = null;
 
+      l = checkQueueForLot(lots, 1);
+      if(l != null){
+        return new Event[] {new Stage_Two_Begin(time, l, this)};
+      }
+
+
       l = checkQueueForLot(lots, 5);
       if(l != null){
-        this.setAvail(false);
         return new Event[] {new Stage_Six_Begin(time, l, this)};
       }
 
-      l = checkQueueForLot(lots, 1);
-      if(l != null){
-        this.setAvail(false);
-        return new Event[] {new Stage_Two_Begin(time, l, this)};
-      }else{
-        return new Event[0]; //queue does not have lots for A to process.
-      }
+
+
+      return new Event[0]; //queue does not have lots for A to process.
+
     }else{
       //not available, so no need to check queue
       return new Event[0];

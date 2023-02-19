@@ -53,4 +53,9 @@ public abstract class Factory {
     }
 
 
+    public boolean queueContains(Lot lot){
+        return this.lots.contains(lot);
+    }
+
+
 }

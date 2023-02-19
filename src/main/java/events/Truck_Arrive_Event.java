@@ -37,11 +37,7 @@ public class Truck_Arrive_Event extends Event{
     //clear the lots in truck
     truck.clearLots();
 
-    //load new lots to truck
-    truck.loadLots();
-
     String destination = "X";
-
     if(truck.getStatus().equals("X")){
       destination = "Y";
     }else if(truck.getStatus().equals("Y")){
@@ -51,7 +47,11 @@ public class Truck_Arrive_Event extends Event{
     //truck leaves asap
     Truck_Leave_Event leave = new Truck_Leave_Event(getTime(), truck, destination);
 
-    return new Event[] {leave};
+    //arrival of truck makes all workstations check for queue (Both in Factory X and Y)
+    Event[] checkQueueEvent = Main.micron.makeWorkstationsCheckQueue(getTime());
+
+
+    return mergeEvents(new Event[] {leave}, checkQueueEvent);
   }
 
   @Override

@@ -8,16 +8,20 @@ public abstract class Event implements Comparable<Event>{
     this.time = time;
   }
 
+
+  //1 for lower priority
   @Override
   public int compareTo(Event e) {
     if (this.time > e.time) {
       return 1;
     } else if (this.time == e.time) {
 
-      if(this instanceof Truck_Arrive_Event){
-        return 1;
-      }else if(this instanceof Truck_Leave_Event){
+      if(this instanceof Lots_Initiated){
         return -1;
+      }else if(this instanceof Truck_Arrive_Event ){
+        return -1;
+      }else if(this instanceof Truck_Leave_Event){
+        return 1;
       }else{
         return 0;
       }

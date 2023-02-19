@@ -54,7 +54,7 @@ public abstract class Workstation {
     public void addLotToQueue(Lot lot){
         factory.printQueue();
         factory.getQueue().add(lot);
-        System.out.println("ADDED " + lot + " from QUEUE ");
+        System.out.println("ADDED " + lot + " to QUEUE ");
         factory.printQueue();
     }
 
@@ -67,4 +67,10 @@ public abstract class Workstation {
     }
     return null;
     }
+
+
+    public boolean checkForLotAvailibility(Lot lot){
+        return this.factory.queueContains(lot);
+    }
+
 }
