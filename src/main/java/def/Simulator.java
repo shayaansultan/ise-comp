@@ -60,6 +60,9 @@ public class Simulator {
     String s = String.format("%.2f", efficiency);
     micron.printCompleted();
     System.out.println("Efficiency: " + s + " minutes/lot");
+
+
+    micron.outputLotData();
   }
 
 

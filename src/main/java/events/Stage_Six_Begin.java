@@ -28,6 +28,10 @@ public class Stage_Six_Begin extends Event {
       Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
 
       Event[] e = new Event[]{new Stage_Six_End(this.getTime() + timeEnd, lot, workstation)};
+
+      //prints after working
+      System.out.println(this);
+
       return mergeEvents(e, c);
     }else{
 
@@ -40,6 +44,6 @@ public class Stage_Six_Begin extends Event {
 
   @Override
   public String toString(){
-    return getTime() + ": " + workstation.toString() + " started " + lot.toString();
+    return getTime() + ": " + workstation.toString() + " started " + lot.toString() + " [" + workstation.getProcessTime(lot) + "]";
   }
 }

@@ -5,6 +5,9 @@ import factory.Factory_X;
 import factory.Factory_Y;
 import workstations.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Micron {
@@ -21,7 +24,7 @@ public class Micron {
   }
 
   public void printCompleted(){
-    System.out.println("Completed: " + lots_completed.toString());
+    System.out.println("Completed: " + numb_lots_produced + " " + lots_completed.toString());
   }
 
 
@@ -104,6 +107,45 @@ public class Micron {
 
   public static int getNumb_lots_produced(){
     return numb_lots_produced;
+  }
+
+
+  public void outputLotData(){
+
+    PrintStream printStream = null;
+    try {
+      printStream = new PrintStream(new File("C:\\Users\\thund\\Desktop\\ISE\\lot_times.csv"));
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+
+    System.setOut(printStream);
+
+    String LotID = "Lot ID";
+    String time_start = "Time Start";
+    String time_end = "Time Ended";
+    String time_taken = "Time Taken";
+
+    String line;
+    line = LotID + "," + time_start + "," + time_end + "," + time_taken;
+
+    System.out.println(line);
+
+    Lot lot;
+    for(int i = 0 ; i < lots_completed.size(); i++){
+      lot = lots_completed.get(i);
+
+
+      LotID = lot.getId() + "";
+      time_start = lot.getStarted_production() + "";
+      time_end = lot.getEnded_production() + "";
+      time_taken = ((int) lot.getEnded_production() - lot.getStarted_production() ) + "";
+
+      line = LotID + "," + time_start + "," + time_end + "," + time_taken;
+      System.out.println(line);
+    }
+
+    System.setOut(System.out);
   }
 
 }

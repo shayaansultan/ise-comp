@@ -23,7 +23,6 @@ public class Stage_One_End extends Event {
     lot.setStage(1);
     workstation.addLotToQueue(lot);
 
-    System.out.println(this);
     return Main.micron.makeWorkstationsCheckQueue(getTime());
   }
 

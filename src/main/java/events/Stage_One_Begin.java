@@ -33,12 +33,18 @@ public class Stage_One_Begin extends Event {
       Event[] c = Main.micron.makeWorkstationsCheckQueue(getTime());
       Event[] e = new Event[] {new Stage_One_End(this.getTime() + timeEnd, lot, workstation)};
 
+      //Record the value;
+      lot.setStarted_production(this.getTime());
+
+      //prints after working
       System.out.println(this);
+
+
       return mergeEvents(c, e);
     }else{
 
-//      System.out.println("Error in finding event in lot");
-//      System.out.println("Lot exists: " + workstation.checkForLotAvailibility(lot));
+    //System.out.println("Error in finding event in lot");
+    //System.out.println("Lot exists: " + workstation.checkForLotAvailibility(lot));
       return new Event[0];
 
     }
