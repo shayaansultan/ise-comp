@@ -48,7 +48,7 @@ public class Micron {
   //Returns first event[] returned by workstations
   public Event[] makeWorkstationsCheckQueue(int time){
 
-    //checkTermination();
+    //checkForceTermination();
 
 
     for(Workstation workstation : workstations){
@@ -68,7 +68,8 @@ public class Micron {
   }
 
 
-  private void checkTermination(){
+  //redundant function for forcing termination
+  private void checkForceTermination(){
     boolean bool = factoryX.getQueue().size() == 0 && factoryY.getQueue().size() == 0;
 
 //    Lot[] lots = truck.getLots();
@@ -77,7 +78,7 @@ public class Micron {
 //    }
 
     if(bool){
-      System.exit(1);
+      System.exit(68);
     }
   }
 

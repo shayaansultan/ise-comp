@@ -1,0 +1,34 @@
+Notes:
+
+1.
+Change simulation(100 , micron);
+                   ^
+to change lots to simulate;
+
+Class:
+Main.java (def package)
+
+
+2.
+Change checkQueue(..) methods in A , B , C etc. to change algo for handling lots in
+the respective workstations
+
+Classes: (Workstation package)
+A.java
+B.java
+C.java
+D.java
+E.java
+F.java
+
+
+3.
+Change priorityOrder = new int[] {3, 2};
+                                   ^
+to change the priority of which lots the truck should pick
+
+Class:
+Truck.java (def package)
+
+4.
+Truck is continuously moving right now. Make a wait event for truck to wait. (perhaps will optimise idk)
